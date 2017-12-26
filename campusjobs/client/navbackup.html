@@ -1,0 +1,33 @@
+
+    <div class="w3-bar w3-teal w3-large">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#">CampusJobs</a>
+
+      <div class="collapse navbar-collapse" id="navigationBar">
+        <ul class="navbar-nav mr-auto">
+          <li *ngIf="authService.loggedIn()"  class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+            <a class="nav-link" [routerLink]="['/home']">Home</a>
+             </li>
+          <li *ngIf="authService.loggedIn()" class="nav-item"[routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact : true}">
+            <a class="nav-link" routerLink="/mynetwork">My Network</a>
+          </li>
+          <li *ngIf="authService.loggedIn()" class="nav-item">
+            <a class="nav-link" href="#">Jobs</a>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav navbar-right">
+          <li *ngIf="!authService.loggedIn()" class="nav-item">
+            <a [routerLink]="['/']" class="nav-link">Register</a>
+          </li>
+          <li *ngIf="!authService.loggedIn()" class="nav-item">
+            <a [routerLink]="['/login']" class="nav-link">Log in</a>
+          </li>
+          <li *ngIf="authService.loggedIn()" class="nav-item">
+            <a class="nav-link" (click)="onLogout()" href="#">Log out</a>
+          </li>
+        </ul>
+      </div>
+    </div>

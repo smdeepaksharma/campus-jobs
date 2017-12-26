@@ -1,0 +1,42 @@
+<div class="w3-container w3-margin-top">
+  <header class="w3-container">
+    <h3>Get Started! It's free and always will be!</h3>
+  </header>
+  <form [formGroup]="userForm" (submit)="saveUser()" class="w3-conatiner">
+  <div class="w3-row-padding">
+  <div class="w3-col s6">
+
+
+
+    <label for="firstName" class="col-form-label col-form-label-lg">First Name</label>
+        <input formControlName="firstName" id="firstName" class="w3-input"/>
+        <control-messages [control]="userForm.controls.firstName"></control-messages>
+        <br>
+        <label for="lastName" class="col-form-label col-form-label-lg">Last Name</label>
+        <input formControlName="lastName" id="lastName" class="w3-input"/>
+        <control-messages [control]="userForm.controls.lastName"></control-messages>
+        <br/>
+        <label for="currentEmployment" class="col-form-label col-form-label-lg">Current Position</label>
+        <input formControlName="currentEmployment" id="currentEmployment" class="w3-input" type="text"/>
+        <control-messages [control]="userForm.controls.currentEmployment"></control-messages>
+  </div>
+  <div class="w3-col s6">
+      <label for="emailId">Email address</label>
+      <input formControlName="emailId" id="emailId" class="w3-input" type="email"/>
+      <control-messages [control]="userForm.controls.emailId"></control-messages>
+      <br/>
+      <label for="currentLocation" class="col-form-label col-form-label-lg">Current City</label>
+      <input formControlName="currentLocation" id="currentLocation" class="w3-input" type="email" placeholder="San Diego, CA"/>
+      <control-messages [control]="userForm.controls.currentLocation"></control-messages>
+      <br/>
+      <label for="password" class="col-form-label col-form-label-lg">Password</label>
+      <input type="password" formControlName="password" id="password" class="w3-input" aria-describedby="passwordHelp">
+      <small id="passwordHelp" class="form-text text-muted">6 or more characters and a number.</small><br/>
+      <control-messages [control]="userForm.controls.password"></control-messages>
+  </div>
+</div>
+<button type="reset" class="w3-button w3-red w3-margin-right w3-right w3-section w3-round-xxlarge">Clear</button>
+<button type="submit" [disabled]="!userForm.valid" class="w3-button w3-teal w3-margin-right w3-right w3-round-xxlarge w3-section">Submit</button>
+</form>
+</div>
+

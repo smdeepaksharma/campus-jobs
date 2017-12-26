@@ -1,0 +1,10 @@
+body {
+    display: inline;
+    background-image: url('../assets/images/sdsu.jpg');
+    background: blue;
+}
+
+.main-container {
+    top : 30px;
+    position: absolute;
+}

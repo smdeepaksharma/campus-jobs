@@ -1,0 +1,33 @@
+<div class="login-page">
+  <div class="w3-display-middle w3-padding" style="min-width:650px">
+    <div class="w3-display-container w3-card-4">
+      <header class="w3-container">
+        <h3 class="w3-text-black">Login</h3>
+      </header>
+      <form [formGroup]="loginForm" (submit)="onLoginSubmit()">
+        <div class="w3-container">
+          <div *ngIf=errorMessage class="row">
+            <p>Invalid user name or password</p>
+          </div>
+        <p>
+            <label for="emailId" class="control-label">Email Id</label>
+            <input formControlName="emailId" id="emailId" class="w3-input w3-border" style="width:600px"/>
+            <control-messages [control]="loginForm.controls.emailId"></control-messages>
+        </p>
+    <p>
+          <label for="password" class="control-label">Password</label>
+          <input type="password" formControlName="password" id="password" style="width:600px" class="w3-input w3-border"/>
+          <control-messages [control]="loginForm.controls.password"></control-messages>
+    </p>
+    </div>
+    <footer class="w3-container">
+      <div class="w3-section">
+        <button type="submit" [disabled]="!loginForm.valid"
+        class="w3-btn w3-teal w3-ripple w3-padding-16 "><b>Login</b></button>
+         <button
+        class="w3-btn w3-blue w3-ripple w3-padding-16 w3-right"><b>Register</b></button>
+        </div>
+    </footer>
+      </form>
+  </div>
+</div>

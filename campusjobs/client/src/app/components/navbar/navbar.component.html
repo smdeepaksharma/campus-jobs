@@ -1,0 +1,35 @@
+<div class="w3-top">
+  <div class="w3-bar w3-card-2 w3-black">
+    <ul>
+      <li>
+        <a href="#home" class="w3-bar-item w3-button"><b>CampusJobs</b></a>
+      </li>
+    </ul>
+    <!-- Float links to the right. Hide them on small screens -->
+    <div class="w3-right">
+     <ul>
+          <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+            <a class="w3-bar-item w3-button" [routerLink]="['/home']">Home</a>
+             </li>
+          <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact : true}">
+            <a class="w3-bar-item w3-button" routerLink="/mynetwork">My Network</a>
+          </li>
+          <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact : true}">
+            <a class="w3-bar-item w3-button" routerLink="/profile">Profile</a>
+          </li>
+          <li *ngIf="authService.loggedIn()" >
+            <a class="w3-bar-item w3-button" href="#">Jobs</a>
+          </li>
+          <li *ngIf="!authService.loggedIn()" class="nav-item">
+            <a [routerLink]="['/']" class="w3-bar-item w3-button">Register</a>
+          </li>
+          <li *ngIf="!authService.loggedIn()" class="nav-item">
+            <a [routerLink]="['/login']" class="w3-bar-item w3-button">Log in</a>
+          </li>
+          <li *ngIf="authService.loggedIn()" class="nav-item">
+            <a class="w3-bar-item w3-button" (click)="onLogout()" href="#">Log out</a>
+          </li>
+        </ul>
+    </div>
+  </div>
+</div>

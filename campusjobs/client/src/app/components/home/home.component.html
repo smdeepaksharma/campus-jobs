@@ -1,0 +1,89 @@
+<div class="w3-row">
+  <div class="w3-col m1">
+    <br>
+  </div>
+  <div class="w3-col m2">
+    <app-mini-profile></app-mini-profile>
+  </div>
+  <div class="w3-col m6">
+<div class="w3-container">
+  <div class="w3-display-container">
+    <div class="w3-container">
+      <div class="w3-padding w3-light-grey w3-card-4 w3-container">
+      <textarea id="newPost" class="w3-input" placeholder="Share an article or idea.."></textarea>
+      <button class="w3-btn w3-section w3-indigo w3-right">Share</button>
+      </div>
+      <br/>
+    </div>
+  <ul class="w3-ul">
+    <li *ngFor="let feed of feeds">
+      <div *ngIf="feed.type=='post'" class="w3-contianer w3-card-2">
+       <header class="w3-container w3-padding">
+          <span></span>
+        </header>
+        <div class="w3-padding-16 w3-light-grey">
+          <img src="/assets/images/sdsu.jpg" class="w3-margin-left w3-left w3-circle w3-margin-right" style="width:50px; height :50px">
+          <span class="w3-large">{{feed.firstname}}</span><br>
+          <span>Web Designer</span>
+        </div>
+          <div class="w3-container w3-padding-16">
+          <p>
+           {{feed.description}}
+          </p>
+        </div>
+        <footer class="w3-container w3-padding">
+           <button class="w3-btn" (click)="like(feed.post_id)">Like</button>
+          <button class="w3-btn" >Share</button>
+        </footer>
+      </div>
+      <div *ngIf="feed.type=='likes'" class="w3-contianer w3-card-2">   
+        <header class="w3-container w3-padding">
+          <h6 class="w3-text-blue">{{feed.firstname}} likes this</h6>
+        </header>
+        <div class="w3-padding-16 w3-light-grey">
+          <img src="/assets/images/sdsu.jpg" class="w3-margin-left w3-left w3-circle w3-margin-right" style="width:50px; height :50px">
+          <span class="w3-large">Mike</span><br>
+          <span>Web Designer</span>
+        </div>
+          <div class="w3-container w3-padding-16">
+          <p>
+           {{feed.description}}
+          </p>
+        </div>
+        <footer class="w3-container w3-padding">
+          <button class="w3-btn" (click)="like(feed.post_id)">Like</button>
+          <button class="w3-btn" >Share</button>
+        </footer>
+      </div>
+
+      <div *ngIf="feed.type=='comment'" class="w3-contianer w3-card-2">
+          <header class="w3-container w3-padding">
+          <h6 class="w3-text-blue">{{feed.firstname}} commented on this...</h6>
+        </header>
+        <div class="w3-padding-16 w3-light-grey">
+          <img src="/assets/images/sdsu.jpg" class="w3-margin-left w3-left w3-circle w3-margin-right" style="width:50px; height :50px">
+          <span class="w3-large">Mike</span><br>
+          <span>Web Designer</span>
+        </div>
+          <div class="w3-container w3-padding-16">
+          <p>
+           {{feed.description}}
+          </p>
+        </div>
+        <footer class="w3-container w3-padding">
+           <button class="w3-btn" (click)="like(feed.post_id)">Like</button>
+          <button class="w3-btn" >Share</button>
+        </footer>
+      </div>
+      
+      </li>
+  </ul>
+    </div>
+</div>
+</div>
+  <div class="w3-col m3">
+    <div class="w3-container w3-card-2">
+      <h4>Add new profile section</h4>
+    </div>
+  </div>
+</div>
